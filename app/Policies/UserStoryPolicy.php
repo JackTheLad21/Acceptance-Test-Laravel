@@ -41,7 +41,7 @@ class UserStoryPolicy
      */
     public function create(User $user)
     {
-        if ($user->hasRole('Backoffice' || 'SuperAdmin')) {
+        if ($user->hasRole('Backoffice', 'SuperAdmin')) {
             return true;
         }
     }
@@ -55,7 +55,7 @@ class UserStoryPolicy
      */
     public function update(User $user, UserStory $user_story)
     {
-        if (($user->hasRole('Backoffice') || $user->hasRole('SuperAdmin')) && $user_story->tested_at == null) {
+        if ($user->hasRole('Backoffice', 'SuperAdmin') && $user_story->tested_at == null) {
             return true;
         }
     }

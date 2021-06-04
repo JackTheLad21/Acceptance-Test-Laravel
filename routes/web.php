@@ -38,23 +38,12 @@ Route::group(['middleware' => ['auth:sanctum', 'role:Backoffice|SuperAdmin']], f
 
     Route::name('dashboard.')->group(function () {
 
-        // Route::get('/home', function () {
-        //     return view('home');
-        // });
-        // Route::get('/home', function (Project $projects) {
-        //     return view('home', [
-        //         'projects' => Project::all()
-        //     ]);
-        // });
+        // Project routes
         Route::get('/home', [ProjectController::class, 'index']);
         Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects_create');
         Route::post('/projects/store', [ProjectController::class, 'store'])->name('projects_store');
-        // Route::resource('projects', ProjectController::class);
-        // Route::post('/home', [ProjectController::class, 'store'])->name('project_store');
-        // Route::get('/project/add', [ProjectController::class, 'create']);
-        // Route::resource('/home', [ProjectController::class]);
-        // Route::post('/projects', [ProjectController::class, 'store'])->name('projects');
 
+        // User Stories Routes
         Route::get(
             '/projects/{project}/user_stories',
             [UserStoryController::class, 'index']
@@ -69,18 +58,6 @@ Route::group(['middleware' => ['auth:sanctum', 'role:Backoffice|SuperAdmin']], f
             '/projects/{project}/user_stories',
             [UserStoryController::class, 'store']
         )->name('user_stories_post');
-
-
-        // Route::get(
-        //     '/project/add',
-        //     function () {
-        //         return view('projects.create');
-        //     }
-        // )->name('add_project');
-
-
-
-
 
         // SuperAdmin only
         Route::group(['middleware' => ['role:SuperAdmin']], function () {

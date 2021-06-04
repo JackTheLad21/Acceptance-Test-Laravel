@@ -3,32 +3,32 @@
 
 @section('content')
 
-    <form method="post" action="{{ route('dashboard.user_stories_post', $project = $project_id) }}">
+    <form method="post" action="{{ route('dashboard.user_stories_post', $project_id) }}">
         {{-- <form> --}}
         @csrf
         <div class="mb-3">
             <label for="name" class="form-label">User Story Name</label>
-            <input type="text" class="form-control" id="user-story-name">
+            <input type="text" class="form-control" id="name">
         </div>
         <div class="mb-3">
             <label for="code" class="form-label">Code</label>
-            <input type="number" class="form-control" id="code">
+            <input type="number" name="code" class="form-control" id="code">
         </div>
         <div class="mb-3">
             <label for="condition" class="form-label">Condition</label>
-            <input type="text" class="form-control" id="condition">
+            <input type="text" name="condition" class="form-control" id="condition">
         </div>
         <div class="mb-3">
             <label for="expectation" class="form-label">Expectation</label>
-            <input type="text" class="form-control" id="expectation">
+            <input type="text" name="expectation" class="form-control" id="expectation">
         </div>
         <div class="mb-3">
             <label for="objective" class="form-label">Objective</label>
-            <input type="text" class="form-control" id="objective">
+            <input type="text" name="objective" class="form-control" id="objective">
         </div>
         <div class="mb-3">
             <label for="test" class="form-label">Test</label>
-            <input type="text" class="form-control" id="test">
+            <input type="text" name="test" class="form-control" id="test">
         </div>
         <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">

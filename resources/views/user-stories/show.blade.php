@@ -3,13 +3,11 @@
 
 @section('content')
 
-    <div class="container-fluid">
-         
+    <div class="container-fluid">  
         <h2>User Stories</h2>
-        {{-- @foreach ($user_stories as $user_story)  --}}
-        
-        <a href="{{ route('dashboard.user_stories_create', $user_stories->project) }}">New User Story</a>
-        {{-- @endforeach --}}
+
+        <a href="{{ route('dashboard.user_stories_create', $project_id) }}">New User Story</a>
+
         <table class="table table-hover">
             <thead>
                 <tr>

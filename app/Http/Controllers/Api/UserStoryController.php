@@ -20,11 +20,9 @@ class UserStoryController extends Controller
      */
     public function index(Project $project)
     {
+        $project_id = $project->id;
         $user_stories = UserStory::where('project_id', $project->id)->get();
-        if ($user_stories) {
-            return view('user-stories.show', compact('user_stories'));
-        }
-        return ('errors.404');
+        return view('user-stories.show', compact('user_stories', 'project_id'));
     }
 
     /**
@@ -35,7 +33,6 @@ class UserStoryController extends Controller
     public function create(Project $project)
     {
         $project_id = $project->id;
-        // dump($project_id);
         return view('user-stories.create', compact('project_id'));
     }
 
@@ -45,16 +42,15 @@ class UserStoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUserStoryRequest $request)
+    public function store(StoreUserStoryRequest $request, Project $project)
     {
         $this->authorize('create', UserStory::class);
         $data = $request->validated();
-        dump($data);
-        $data['user_id'] = $request->user()->id;
-        // $data['project_id'] = $request->project_id;
-        dump($data);
+        // $data['user_id'] = $request->user()->id;
+        $data['project_id'] = $project->id;
         UserStory::create($data);
-        return redirect()->route('/projects/{project}/user_stories', $data['project_id']);
+        // return redirect()->route('/projects/{project}/user_stories', $data['project_id']);
+        return back();
     }
 
     /**

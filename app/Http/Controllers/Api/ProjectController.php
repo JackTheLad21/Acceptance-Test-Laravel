@@ -38,17 +38,9 @@ class ProjectController extends Controller
      */
     public function store(ProjectRequest $request)
     {
-        // $this->authorize('create', Project::class);
-        // $request->validated();
-        Project::create($request->validated());
-        return redirect('/home');
-
-        // return new Project($new_project);
-
-        // dump($request);
-        // return redirect('/home');
-        // Project::create($request->validated());
-        // return redirect()->route('/home');
+        $data = $request->validated();
+        Project::create($data);
+        return back();
     }
 
     /**
