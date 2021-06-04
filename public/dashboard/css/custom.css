@@ -1,0 +1,16 @@
+.aside-menu .menu-nav > .menu-section {
+    margin: 0 0 0 0
+}
+
+.header-fixed.subheader-fixed.subheader-enabled .wrapper {
+    padding-top: 65px;
+}
+
+.background-cover {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.text-shadow {
+    text-shadow: 2px 2px 5px rgb(102, 102, 102);
+}

@@ -1,0 +1,11 @@
+Dockerfile*
+.env.example
+.dockerignore
+.git
+.gitattributes
+.editorconfig
+.idea
+README.md
+storage/
+public/
+tests/
