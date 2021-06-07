@@ -5,10 +5,11 @@
 
     <form method="post" action="{{ route('dashboard.user_stories_post', ['project' => $project->id]) }}">
         @csrf
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <label for="name" class="form-label">User Story Name</label>
             <input type="text" class="form-control" id="name">
-        </div>
+        </div> --}}
+        <input type="hidden" name="project_id" value="{{ $project->id }}">
         <div class="mb-3">
             <label for="code" class="form-label">Code</label>
             <input type="number" name="code" class="form-control" id="code">

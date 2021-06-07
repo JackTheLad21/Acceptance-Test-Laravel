@@ -41,12 +41,12 @@ class UserStoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUserStoryRequest $request, Project $project)
+    public function store(StoreUserStoryRequest $request)
     {
         $this->authorize('create', UserStory::class);
         $data = $request->validated();
         // $data['user_id'] = $request->user()->id;
-        $data['project_id'] = $project->id;
+        // $data['project_id'] = $project->id;
         UserStory::create($data);
         // return redirect()->route('/projects/{project}/user_stories', $data['project_id']);
         return back();

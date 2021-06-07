@@ -11,6 +11,7 @@
             <input type="text" class="form-control" id="name"
             value="{{ $user_story->name }}">
         </div> --}}
+        <input type="hidden" name="project_id" value="{{ $user_story->project_id}}">
         <div class="mb-3">
             <label for="code" class="form-label">Code</label>
             <input type="number" name="code" class="form-control" id="code"
