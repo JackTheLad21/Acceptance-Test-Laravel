@@ -3,8 +3,7 @@
 
 @section('content')
 
-    <form method="post" action="{{ route('dashboard.user_stories_post', $project_id) }}">
-        {{-- <form> --}}
+    <form method="post" action="{{ route('dashboard.user_stories_post', ['project' => $project->id]) }}">
         @csrf
         <div class="mb-3">
             <label for="name" class="form-label">User Story Name</label>
@@ -35,17 +34,6 @@
             <label class="form-check-label" for="exampleCheck1">Check me out</label>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
-
-        {{-- @if (isset($errors) && count($errors))
-     
-            There were {{count($errors->all())}} Error(s)
-                        <ul>
-                    @foreach($errors->all() as $error)
-                        <li>{{ $error }} </li>
-                    @endforeach
-                </ul>
-                
-        @endif --}}
     </form>
 
 @endsection

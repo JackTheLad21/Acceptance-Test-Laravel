@@ -32,8 +32,7 @@ class UserStoryController extends Controller
      */
     public function create(Project $project)
     {
-        $project_id = $project->id;
-        return view('user-stories.create', compact('project_id'));
+        return view('user-stories.create', compact('project'));
     }
 
     /**
@@ -70,9 +69,9 @@ class UserStoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Project $project, UserStory $user_story)
     {
-        //
+        return view('user-stories.edit', compact('project', 'user_story'));
     }
 
     /**
@@ -84,6 +83,8 @@ class UserStoryController extends Controller
      */
     public function update(UpdateUserStoryRequest $request, UserStory $user_story)
     {
+        $user_story->update($request->validated());
+        return back();
     }
 
     /**

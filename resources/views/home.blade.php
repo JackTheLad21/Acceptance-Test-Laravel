@@ -12,6 +12,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Name</th>
+                    <th scope="col">Edit</th>
                     <th scope="col">User Stories</th>
                 </tr>
             </thead>
@@ -19,8 +20,9 @@
                 @foreach ($projects as $project)
                     <tr>
                         <td>{{ $project->id }}</td>
-                        <td>{{ $project->name }}</td>
-                        <td><a href={{ route('dashboard.user_stories_index', ['project' => $project->id])  }}>View</a></td>
+                        <td>{{ $project->name }}</td>                        
+                        <td><a href={{ route('dashboard.projects_edit', ['project' => $project->id])  }}>Edit</a></td>
+                        <td><a href="{{ route('dashboard.user_stories_index', ['project' => $project->id])  }}">View</a></td>
                     </tr>
                 @endforeach
             </tbody>

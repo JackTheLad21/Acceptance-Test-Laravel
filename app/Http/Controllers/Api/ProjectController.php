@@ -25,9 +25,9 @@ class ProjectController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Project $project)
     {
-        return view('projects.create');
+        return view('projects.create', compact('project'));
     }
 
     /**
@@ -36,9 +36,10 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProjectRequest $request)
+    public function store(ProjectRequest $request, Project $project)
     {
         $data = $request->validated();
+        // $data['project'] = $project->id;
         Project::create($data);
         return back();
     }
@@ -60,9 +61,10 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Project $project)
     {
-        //
+        $project;
+        return view('projects.edit', compact('project'));
     }
 
     /**

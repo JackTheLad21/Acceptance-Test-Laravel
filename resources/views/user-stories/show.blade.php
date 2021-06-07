@@ -20,6 +20,7 @@
                     <th scope="col">Test</th>
                     <th scope="col">Feedbacks</th>
                     <th scope="col">Tested at</th>
+                    <th scope="col">Edit</th>
                 </tr>
             </thead>
             <tbody>
@@ -34,6 +35,8 @@
                         <td>{{ $user_story->test }}</td>
                         <td>{{ $user_story->feedbacks }}</td>
                         <td>{{ $user_story->tested_at }}</td>
+                        {{-- <td><a href="{{ route('dashboard.user_stories_post', ['project' => $user_story->project_id, 'id' => $user_story->id])  }}">Edit</a></td> --}}
+                        <td><a href="{{ route('dashboard.user_stories_edit', ['project' => $user_story->project_id, 'user_story' => $user_story->id])  }}">Edit</a></td>
                     </tr>
                 @endforeach
             </tbody>

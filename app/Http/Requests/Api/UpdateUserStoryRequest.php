@@ -24,10 +24,12 @@ class UpdateUserStoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'condition' => 'required',
-            'expectation' => 'required',
-            'objective' => 'required',
-            'test' => 'required'
+            'project_id'    => 'exists:user_stories',
+            'code'          => 'required',
+            'condition'     => 'required',
+            'expectation'   => 'required',
+            'objective'     => 'required',
+            'test'          => 'required'
         ];
     }
 }
